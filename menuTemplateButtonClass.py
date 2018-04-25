@@ -67,15 +67,33 @@ def my_shell_function():
     """A generic function that prints something in the shell"""
     print('Fire the nukes!')
 
-def my_next_function():
+def my_settings_function():
     """A function that advances to the next level"""
     global level
     level += 1
 
-def my_previous_function():
+def my_hello_function():
+    """A function that prints hello when pressed"""
+    print('Hello')
+
+def my_back_function():
     """A function that retreats to the previous level"""
     global level
     level -= 1
+
+def my_sound_function():
+    """A function that allows user to change sound settings"""
+    print('')
+
+def my_soundon_function():
+    """A function that allows you to turn the sound on"""
+    print('Sound On')
+
+
+def my_soundoff_function():
+    """A function that allows you to turn the sound off"""
+    print('Sound Off')
+
 
 def my_quit_function():
     """A function that will quit the game and close the pygame window"""
@@ -99,21 +117,26 @@ carryOn = True
 clock = pygame.time.Clock()
 
 #create button objects
-button_01 = Button("Next", (SCREENWIDTH/2, SCREENHEIGHT/3), my_next_function)
-button_02 = Button("Previous", (SCREENWIDTH/2, SCREENHEIGHT/3), my_previous_function)
+button_01 = Button("Settings", (SCREENWIDTH/2, SCREENHEIGHT/3), my_settings_function)
+button_02 = Button("Back", (SCREENWIDTH/2, SCREENHEIGHT/3), my_back_function)
 button_03 = Button("Quit", (SCREENWIDTH/2, SCREENHEIGHT*2/3), my_quit_function, bg=(50, 200, 20))
+button_04 = Button("Hello", (SCREENWIDTH/2, SCREENHEIGHT/4), my_hello_function)
+button_05 = Button("Sound", (SCREENWIDTH/2, SCREENHEIGHT/2), my_sound_function)
+button_06 = Button("Sound On", (SCREENWIDTH/4, SCREENHEIGHT/2), my_soundon_function)
+button_07 = Button("Sound Off", (SCREENWIDTH *3/4, SCREENHEIGHT/2), my_soundoff_function)
+
 
 #Game tilte
 fontTitle = pygame.font.Font('freesansbold.ttf', 32)
 textSurfaceTitle = fontTitle.render('Naruto 2.0!', True, BLACK) 
 textRectTitle = textSurfaceTitle.get_rect()
 
-textRectTitle.center = (250, 100)
+textRectTitle.center = (250, 50)
 
 
 #arrange button groups depending on level
-level1_buttons = [button_01, button_03]
-level2_buttons = [button_02, button_03]
+level1_buttons = [button_01, button_03 , button_04]
+level2_buttons = [button_02, button_03 , button_05, button_06, button_07]
 
 #---------Main Program Loop----------
 while carryOn:
@@ -130,7 +153,9 @@ while carryOn:
 
     # Clear the screen to white
     screen.fill(BRIGHT_BLUE)
+
     screen.blit(textSurfaceTitle, textRectTitle)
+
     # Draw buttons
     if level == 1:
         for button in level1_buttons:
