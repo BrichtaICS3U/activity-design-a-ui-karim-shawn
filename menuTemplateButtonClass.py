@@ -10,9 +10,10 @@ GRAY = (127, 127, 127)
 BLACK = (0, 0, 0)
 RED = (255, 0, 0)
 BLUE = (0, 0, 255)
+BRIGHT_BLUE = (104, 162, 255)
 
-SCREENWIDTH = 120
-SCREENHEIGHT = 100
+SCREENWIDTH = 500
+SCREENHEIGHT = 500
 size = (SCREENWIDTH, SCREENHEIGHT)
 screen = pygame.display.set_mode(size)
 
@@ -102,6 +103,14 @@ button_01 = Button("Next", (SCREENWIDTH/2, SCREENHEIGHT/3), my_next_function)
 button_02 = Button("Previous", (SCREENWIDTH/2, SCREENHEIGHT/3), my_previous_function)
 button_03 = Button("Quit", (SCREENWIDTH/2, SCREENHEIGHT*2/3), my_quit_function, bg=(50, 200, 20))
 
+#Game tilte
+fontTitle = pygame.font.Font('freesansbold.ttf', 32)
+textSurfaceTitle = fontTitle.render('Naruto 2.0!', True, BLACK) 
+textRectTitle = textSurfaceTitle.get_rect()
+
+textRectTitle.center = (250, 100)
+
+
 #arrange button groups depending on level
 level1_buttons = [button_01, button_03]
 level2_buttons = [button_02, button_03]
@@ -120,8 +129,8 @@ while carryOn:
     # --- Draw code goes here
 
     # Clear the screen to white
-    screen.fill(WHITE)
-
+    screen.fill(BRIGHT_BLUE)
+    screen.blit(textSurfaceTitle, textRectTitle)
     # Draw buttons
     if level == 1:
         for button in level1_buttons:

@@ -29,6 +29,9 @@ pygame.display.set_caption("My Button")
 fontTitle = pygame.font.Font('freesansbold.ttf', 32)
 textSurfaceTitle = fontTitle.render('My Awesome Game!', True, BLACK) 
 textRectTitle = textSurfaceTitle.get_rect()
+
+
+
 textRectTitle.center = (200, 150)   # place the centre of the text
 
 # This loop will continue until the user exits the game
