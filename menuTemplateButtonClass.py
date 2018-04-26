@@ -10,7 +10,12 @@ GRAY = (127, 127, 127)
 BLACK = (0, 0, 0)
 RED = (255, 0, 0)
 BLUE = (0, 0, 255)
-BRIGHT_BLUE = (104, 162, 255)
+
+# Colour Palette
+DARK_BLUE = (12, 44, 82)
+GREY = (95, 107, 97)
+BABY_BLUE = (94, 157, 200)
+WHITE_BLUE = (220, 240, 247)
 
 SCREENWIDTH = 500
 SCREENHEIGHT = 500
@@ -152,7 +157,7 @@ while carryOn:
     # --- Draw code goes here
 
     # Clear the screen to white
-    screen.fill(BRIGHT_BLUE)
+    screen.fill(BABY_BLUE)
 
     screen.blit(textSurfaceTitle, textRectTitle)
 
