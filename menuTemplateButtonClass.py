@@ -3,10 +3,15 @@
 
 import pygame, sys
 pygame.init()
+BackGround = pygame.image.load('hokage.jpg')
+
+pygame.mixer.pre_init(frequency=44100, size=-16, channels=2, buffer=4096)
+pygame.mixer.music.load('Naruto_Song.mp3')
+pygame.mixer.music.play(-1)
 
 # Define some colours
 WHITE = (255, 255, 255)
-GRAY = (127, 127, 127)
+GRAY = (127, 127, 127)  
 BLACK = (0, 0, 0)
 RED = (255, 0, 0)
 BLUE = (0, 0, 255)
@@ -21,6 +26,8 @@ SCREENWIDTH = 500
 SCREENHEIGHT = 500
 size = (SCREENWIDTH, SCREENHEIGHT)
 screen = pygame.display.set_mode(size)
+
+
 
 class Button():
     """This is a class for a generic button.
@@ -78,6 +85,7 @@ def my_settings_function():
     level += 1
 
 def my_hello_function():
+    
     """A function that prints hello when pressed"""
     print('Hello')
 
@@ -92,11 +100,13 @@ def my_sound_function():
 
 def my_soundon_function():
     """A function that allows you to turn the sound on"""
+    pygame.mixer.music.unpause()
     print('Sound On')
 
 
 def my_soundoff_function():
     """A function that allows you to turn the sound off"""
+    pygame.mixer.music.pause()
     print('Sound Off')
 
 
@@ -158,6 +168,7 @@ while carryOn:
 
     # Clear the screen to white
     screen.fill(BABY_BLUE)
+    screen.blit(BackGround,(0,0))
 
     screen.blit(textSurfaceTitle, textRectTitle)
 
