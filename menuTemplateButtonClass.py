@@ -50,6 +50,10 @@ class Button():
 
         self.call_back_ = action
 
+        #pygame.mixer.pre_init(frequency=44100, size=-16, channels=2, buffer=4096)
+        #pygame.mixer.load('Sounds/soundtrack.mps3')
+        #pygame.mixer.music.play(-1) THIS IS WHERE THE MUSIC FILE IS
+
     def draw(self):
         self.mouseover()
 
@@ -92,11 +96,13 @@ def my_sound_function():
 
 def my_soundon_function():
     """A function that allows you to turn the sound on"""
+    pygame.mixer.music.unpause()
     print('Sound On')
 
 
 def my_soundoff_function():
     """A function that allows you to turn the sound off"""
+    pygame.mixer.music.pause()
     print('Sound Off')
 
 
@@ -131,7 +137,7 @@ button_06 = Button("Sound On", (SCREENWIDTH/4, SCREENHEIGHT/2), my_soundon_funct
 button_07 = Button("Sound Off", (SCREENWIDTH *3/4, SCREENHEIGHT/2), my_soundoff_function)
 
 
-#Game tilte
+#Game title
 fontTitle = pygame.font.Font('freesansbold.ttf', 32)
 textSurfaceTitle = fontTitle.render('Naruto 2.0!', True, BLACK) 
 textRectTitle = textSurfaceTitle.get_rect()
