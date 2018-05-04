@@ -3,7 +3,7 @@
 
 import pygame, sys
 pygame.init()
-BackGround = pygame.image.load('hokage.jpg')
+BackGround = pygame.image.load('P:/madara_uchiha__s_mangekyou_sharingan_by_kriss80858-d54wvmh (1).jpg')
 
 pygame.mixer.pre_init(frequency=44100, size=-16, channels=2, buffer=4096)
 pygame.mixer.music.load('Naruto_Song.mp3')
@@ -22,8 +22,8 @@ GREY = (95, 107, 97)
 BABY_BLUE = (94, 157, 200)
 WHITE_BLUE = (220, 240, 247)
 
-SCREENWIDTH = 500
-SCREENHEIGHT = 500
+SCREENWIDTH = 710
+SCREENHEIGHT = 710
 size = (SCREENWIDTH, SCREENHEIGHT)
 screen = pygame.display.set_mode(size)
 
@@ -138,7 +138,7 @@ clock = pygame.time.Clock()
 #create button objects
 button_01 = Button("Settings", (SCREENWIDTH/2, SCREENHEIGHT/3), my_settings_function)
 button_02 = Button("Back", (SCREENWIDTH/2, SCREENHEIGHT/3), my_back_function)
-button_03 = Button("Quit", (SCREENWIDTH/2, SCREENHEIGHT*2/3), my_quit_function, bg=(50, 200, 20))
+button_03 = Button("Quit", (SCREENWIDTH/3, SCREENHEIGHT*3.4/4), my_quit_function, bg=(50, 200, 20))
 button_04 = Button("Hello", (SCREENWIDTH/2, SCREENHEIGHT/4), my_hello_function)
 button_05 = Button("Sound", (SCREENWIDTH/2, SCREENHEIGHT/2), my_sound_function)
 button_06 = Button("Sound On", (SCREENWIDTH/4, SCREENHEIGHT/2), my_soundon_function)
@@ -171,7 +171,7 @@ while carryOn:
     # --- Draw code goes here
 
     # Clear the screen to white
-    screen.fill(BABY_BLUE)
+    screen.fill(BLACK)
     screen.blit(BackGround,(0,0))
 
     screen.blit(textSurfaceTitle, textRectTitle)
